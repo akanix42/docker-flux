@@ -1,7 +1,12 @@
 FROM fluxcd/flux:1.19.0
 
+ENV PATH="/sbin:${PATH}"
+
 # Install Curl
-RUN /sbin/apk add curl
+RUN apk add curl
+
+# Install Python
+RUN apk add python3
 
 # Install Helm
 RUN mkdir -p /tmp/setup \
